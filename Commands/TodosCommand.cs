@@ -8,15 +8,22 @@ public class TodosCommand : Command<TodosCommand.Settings>
     public class Settings : CommandSettings
     {
         [CommandOption("-h|--help")]
-        public int? Help { get; set; }
+        public bool Help { get; init; }
     }
 
     public override int Execute([NotNull] CommandContext context, [NotNull] Settings settings)
     {
         try
         {
-            string text = System.IO.File.ReadAllText(Constants.TodoFilePath);
-            System.Console.WriteLine("{0}", text);
+            if (settings.Help)
+            {
+                AnsiConsole.Markup("[blue]Help section[/]");
+            }
+            else
+            {
+                string text = System.IO.File.ReadAllText(Constants.TodoFilePath);
+                System.Console.WriteLine("Current todos: {0}", text);
+            }
 
             return 0;
         }
