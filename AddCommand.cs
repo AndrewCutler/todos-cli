@@ -15,7 +15,11 @@ public class AddCommand : Command<AddCommand.Settings>
         try
         {
             using StreamWriter file = new(Constants.TodoFilePath, append: true);
-            file.WriteLine(settings.Add);
+            // TODO: allow escaping commas
+            foreach (var line in settings.Add?.Split(",") ?? new string[] { })
+            {
+                file.WriteLine(line);
+            }
             AnsiConsole.MarkupLine($"[green]Item added.[/]");
 
             return 0;
