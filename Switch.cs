@@ -8,6 +8,7 @@ public static class Switch
         Action? command = arg switch
         {
             "-a" or "--add" => () => file.WriteLine("code"),
+            "-h" or "--help" => () => file.WriteLine("Help section"),
             null or _ => () => AnsiConsole.Write(arg ?? string.Empty),
         };
 
