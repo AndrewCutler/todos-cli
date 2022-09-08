@@ -13,6 +13,11 @@ app.Configure(config =>
         .WithDescription("Mark a todo as complete, by index")
         .WithExample(new[] { "complete", "2" })
         ;
+    config.AddCommand<RemoveCommand>("remove")
+        .WithAlias("-r")
+        .WithDescription("Remove a todo item by index")
+        .WithExample(new[] { "remove", "2" })
+        ;
 
 #if DEBUG
     config.PropagateExceptions();
