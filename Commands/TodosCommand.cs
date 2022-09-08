@@ -21,8 +21,7 @@ public class TodosCommand : Command<TodosCommand.Settings>
             }
             else
             {
-                string text = System.IO.File.ReadAllText(Constants.TodoFilePath);
-                System.Console.WriteLine("Current todos: {0}", text);
+                ListTable.Run();
             }
 
             return 0;

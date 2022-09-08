@@ -5,8 +5,8 @@ var app = new CommandApp<TodosCommand>();
 app.Configure(config =>
 {
     config.AddCommand<AddCommand>("add")
-        // .WithDescription("Add todo items")
-        // .WithExample(new[] { "add", "\"Install Docker\"" })
+        .WithDescription("Add todo items")
+        .WithExample(new[] { "add", "\"Install Docker\"" })
         ;
 
 #if DEBUG
@@ -16,6 +16,3 @@ app.Configure(config =>
 });
 
 await app.RunAsync(args);
-
-// string text = System.IO.File.ReadAllText(Constants.TodoFilePath);
-// System.Console.WriteLine("Contents of file: {0}", text);
