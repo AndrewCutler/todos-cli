@@ -31,7 +31,7 @@ public static class ListTable
             table.AddRow(
                 (current.index + 1).ToString(),
                 todo.Replace(Constants.CompleteMarker, string.Empty),
-                isComplete ? "[green]Done[/]" : "[yellow]In progress[/]",
+                isComplete ? "[green]Done[/]" : "[yellow]Pending[/]",
                 timestamp);
         }
 
