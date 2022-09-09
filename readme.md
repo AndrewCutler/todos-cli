@@ -8,3 +8,7 @@ This project is an exploration of .NET console application development. What bet
 * [Spectre.Console](https://spectreconsole.net/)
 
 ## How to use
+
+
+## TODO
+* "clean" command, to remove all completed todos
