@@ -20,6 +20,7 @@ public class AddCommand : Command<AddCommand.Settings>
             {
                 file.WriteLine(line);
             }
+
             AnsiConsole.MarkupLine($"[green]Item added.[/]");
 
             return 0;
