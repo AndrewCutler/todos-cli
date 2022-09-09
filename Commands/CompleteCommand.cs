@@ -20,8 +20,17 @@ public class CompleteCommand : Command<CompleteCommand.Settings>
 
             var lineToComplete = lines[settings.Index - 1];
 
-            // TODO: implement actual functionality
-            AnsiConsole.Markup(lineToComplete);
+            if (lineToComplete.StartsWith(Constants.CompleteMarker))
+            {
+                AnsiConsole.MarkupLine("[yellow]Todo already completed.[/]");
+
+                return 0;
+            }
+
+            var timestamp = $"{Constants.Timestamp}{DateTime.Now.ToString()}";
+
+            lines[settings.Index - 1] = $"{Constants.CompleteMarker}{lineToComplete}{timestamp}";
+            File.WriteAllLines(Constants.TodoFilePath, lines);
 
             return 0;
         }
