@@ -1,3 +1,4 @@
+using Newtonsoft.Json;
 using Spectre.Console;
 
 public static class Utility
@@ -36,5 +37,14 @@ public static class Utility
         }
 
         AnsiConsole.Write(table);
+    }
+
+    public static Settings Settings()
+    {
+        using StreamReader r = new StreamReader(Constants.SettingsPath);
+        string json = r.ReadToEnd();
+        Settings? settings = JsonConvert.DeserializeObject<Settings>(json);
+
+        return settings ?? new Settings();
     }
 }
