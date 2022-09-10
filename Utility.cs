@@ -1,8 +1,8 @@
 using Spectre.Console;
 
-public static class ListTable
+public static class Utility
 {
-    public static void Run()
+    public static void ListTable()
     {
         var table = new Table();
 

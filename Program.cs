@@ -18,6 +18,11 @@ app.Configure(config =>
         .WithDescription("Remove a todo item by index")
         .WithExample(new[] { "remove", "2" })
         ;
+    config.AddCommand<CleanCommand>("clean")
+        .WithAlias("-l")
+        .WithDescription("Remove all completed todos")
+        .WithExample(new[] { "clean" })
+        ;
 
 #if DEBUG
     config.PropagateExceptions();

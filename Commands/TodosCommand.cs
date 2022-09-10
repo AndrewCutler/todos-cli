@@ -21,7 +21,7 @@ public class TodosCommand : Command<TodosCommand.Settings>
             }
             else
             {
-                ListTable.Run();
+                Utility.ListTable();
             }
 
             return 0;

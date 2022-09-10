@@ -1,3 +1,4 @@
+using System.ComponentModel;
 using System.Diagnostics.CodeAnalysis;
 using Spectre.Console;
 using Spectre.Console.Cli;
@@ -7,6 +8,8 @@ public class AddCommand : Command<AddCommand.Settings>
     public class Settings : CommandSettings
     {
         [CommandArgument(0, "[TODO]")]
+        [Description("Adds a new todo item")]
+
         public string? Add { get; set; }
     }
 
