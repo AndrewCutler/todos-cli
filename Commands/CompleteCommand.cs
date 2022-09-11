@@ -20,7 +20,7 @@ public class CompleteCommand : Command<CompleteCommand.Settings>
 
             var lineToComplete = lines[settings.Index - 1];
 
-            if (lineToComplete.StartsWith(Constants.CompleteMarker))
+            if (Utility.IsComplete(lineToComplete))
             {
                 AnsiConsole.MarkupLine("[yellow]Todo already completed.[/]");
 

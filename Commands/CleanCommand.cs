@@ -18,7 +18,7 @@ public class CleanCommand : Command<CleanCommand.Settings>
         {
             string[] lines = System.IO.File.ReadAllLines(Constants.TodoFilePath);
 
-            var linesToKeep = lines.Where((line) => !line.StartsWith(Constants.CompleteMarker));
+            var linesToKeep = lines.Where((line) => !Utility.IsComplete(line));
 
             File.WriteAllLines(Constants.TodoFilePath, linesToKeep);
 

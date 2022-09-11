@@ -17,11 +17,24 @@ public class EditCommand : Command<EditCommand.Settings>
         try
         {
             var allLines = File.ReadAllLines(Constants.TodoFilePath);
-            var lineToEdit = allLines
-                .Where((line, index) => index == settings.Index - 1);
+            string? lineToEdit = allLines
+                .Where((line, index) => index == settings.Index - 1)
+                .FirstOrDefault();
+
+            if (lineToEdit is null)
+            {
+                throw new NullReferenceException($"Cannot find todo with index {settings.Index}.");
+            }
+
+            if (Utility.IsComplete(lineToEdit))
+            {
+                AnsiConsole.Markup("[yellow]Todo is already completed and cannot be edited.\n[/]");
+
+                return 0;
+            }
 
             var todo = AnsiConsole.Prompt(
-                new TextPrompt<string>($"Enter updated todo ([yellow]{lineToEdit.FirstOrDefault()}[/]):")
+                new TextPrompt<string>($"Enter updated todo ([yellow]{lineToEdit}[/]):")
                 .PromptStyle("blue")
                 .Validate(todo =>
                 {

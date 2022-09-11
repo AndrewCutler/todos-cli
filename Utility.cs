@@ -47,4 +47,6 @@ public static class Utility
 
         return settings ?? new Settings();
     }
+
+    public static bool IsComplete(string todo) => todo.StartsWith(Constants.CompleteMarker);
 }
