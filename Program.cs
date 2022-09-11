@@ -1,6 +1,7 @@
 ﻿using Spectre.Console.Cli;
 
 var app = new CommandApp<TodosCommand>();
+
 app.Configure(config =>
 {
     config.AddCommand<AddCommand>("add")
