@@ -8,7 +8,7 @@ public class RemoveCommand : Command<RemoveCommand.Settings>
     public class Settings : CommandSettings
     {
         [CommandArgument(0, "[TODO]")]
-        [Description("Removed a todo item")]
+        [Description("Remove a todo item")]
         public int Index { get; set; }
     }
 

@@ -24,6 +24,11 @@ app.Configure(config =>
         .WithDescription("Remove all completed todos")
         .WithExample(new[] { "clean" })
         ;
+    config.AddCommand<EditCommand>("edit")
+        .WithAlias("-e")
+        .WithDescription("Edit an existing todo")
+        .WithExample(new[] { "edit", "2" })
+        ;
 
 #if DEBUG
     config.PropagateExceptions();
