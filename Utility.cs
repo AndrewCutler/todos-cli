@@ -48,5 +48,12 @@ public static class Utility
         return settings ?? new Settings();
     }
 
+    public static int HandleError(Exception ex)
+    {
+        AnsiConsole.MarkupLine($"[red]There was an error processing the request:\n[/][yellow]{ex.Message}[/]");
+
+        return 1;
+    }
+
     public static bool IsComplete(string todo) => todo.StartsWith(Constants.CompleteMarker);
 }

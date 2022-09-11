@@ -26,9 +26,7 @@ public class CleanCommand : Command<CleanCommand.Settings>
         }
         catch (Exception ex)
         {
-            AnsiConsole.MarkupLine($"[red]There was an error cleaning completed todos:\n[/][yellow]{ex.Message}[/]");
-
-            return 1;
+            return Utility.HandleError(ex);
         }
     }
 }

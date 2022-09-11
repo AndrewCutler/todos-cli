@@ -31,9 +31,7 @@ public class RemoveCommand : Command<RemoveCommand.Settings>
         }
         catch (Exception ex)
         {
-            AnsiConsole.MarkupLine($"[red]There was an error removing the todo item:\n[/][yellow]{ex.Message}[/]");
-
-            return 1;
+            return Utility.HandleError(ex);
         }
     }
 }

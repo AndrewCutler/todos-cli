@@ -37,9 +37,7 @@ public class AddCommand : Command<AddCommand.Settings>
         }
         catch
         {
-            AnsiConsole.MarkupLine("[red]There was an error adding the todo item.[/]");
-
-            return 1;
+            return Utility.HandleError(ex);
         }
     }
 }

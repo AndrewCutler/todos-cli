@@ -65,9 +65,7 @@ public class EditCommand : Command<EditCommand.Settings>
         }
         catch (Exception ex)
         {
-            AnsiConsole.MarkupLine($"[red]There was an error editing the todo item:\n[/][yellow]{ex.Message}[/]");
-
-            return 1;
+            return Utility.HandleError(ex);
         }
     }
 }

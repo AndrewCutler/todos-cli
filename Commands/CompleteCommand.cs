@@ -36,9 +36,7 @@ public class CompleteCommand : Command<CompleteCommand.Settings>
         }
         catch (Exception ex)
         {
-            AnsiConsole.MarkupLine($"[red]There was an error marking the todo item as complete:\n[/][yellow]{ex.Message}[/]");
-
-            return 1;
+            return Utility.HandleError(ex);
         }
     }
 }

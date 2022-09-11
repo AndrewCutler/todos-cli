@@ -28,9 +28,7 @@ public class TodosCommand : Command<TodosCommand.Settings>
         }
         catch
         {
-            AnsiConsole.MarkupLine("[red]There was an error reading the todo list.[/]");
-
-            return 1;
+            return Utility.HandleError(ex);
         }
     }
 }
