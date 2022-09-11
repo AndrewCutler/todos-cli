@@ -35,7 +35,7 @@ public class AddCommand : Command<AddCommand.Settings>
 
             return 0;
         }
-        catch
+        catch (Exception ex)
         {
             return Utility.HandleError(ex);
         }
