@@ -24,7 +24,14 @@ public class AddCommand : Command<AddCommand.Settings>
                 file.WriteLine(line);
             }
 
+            file.Close();
+
             AnsiConsole.MarkupLine($"[green]Item added.[/]");
+
+            if (Utility.Settings().ListAfterAdd)
+            {
+                Utility.ListTable();
+            }
 
             return 0;
         }

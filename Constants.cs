@@ -14,4 +14,9 @@ public static class Constants
     /// Used to demarcate the completion timestamp.
     /// </summary>
     public static string Timestamp = "&*";
+
+    /// <summary>
+    /// Stores app settings, in JSON format.
+    /// </summary>
+    public static string SettingsPath = "/home/andrew/.todo-settings.json";
 }

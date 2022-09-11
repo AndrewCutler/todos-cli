@@ -17,6 +17,7 @@ public class RemoveCommand : Command<RemoveCommand.Settings>
         try
         {
             var allLines = File.ReadAllLines(Constants.TodoFilePath);
+            // Seems to have a bug
             var linesToRemove = allLines
                 .Where((line, index) => index == settings.Index - 1);
             var linesToKeep = allLines
